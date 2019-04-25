@@ -4,7 +4,8 @@ node_js:
 cache:
   directories:
   - node_modules
-
+env:
+  - MOZ_HEADLESS=1
 script:
   - bash -c 'GLOBIGNORE="node_modules" shellcheck **/*.sh'
   - npm install
@@ -19,3 +20,5 @@ notifications:
     on_success: change  # always|never|change
     on_failure: always
     on_start: never
+addons:
+  firefox: "latest-unsigned"
